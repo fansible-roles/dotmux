@@ -1,0 +1,48 @@
+---
+- name: "Configuring main tmux template"
+  ansible.builtin.template:
+    src: tmux.j2
+    dest: "{{ ansible_facts['env']['HOME'] }}/.tmux.conf"
+    backup: true
+    owner: "{{ ansible_facts['env']['USER'] }}"
+    group: "{{ ansible_facts['user_gid'] }}"
+
+- name: "Configuring Tmux Options"
+  ansible.builtin.template:
+    src: options.j2
+    dest: "{{ ansible_facts['env']['HOME'] }}/.tmux/options.conf"
+    backup: true
+    owner: "{{ ansible_facts['env']['USER'] }}"
+    group: "{{ ansible_facts['user_gid'] }}"
+
+- name: "Configuring Tmux Key Bindings"
+  ansible.builtin.template:
+    src: keybindings.j2
+    dest: "{{ ansible_facts['env']['HOME'] }}/.tmux/keybindings.conf"
+    backup: true
+    owner: "{{ ansible_facts['env']['USER'] }}"
+    group: "{{ ansible_facts['user_gid'] }}"
+
+- name: "Configuring Tmux Theme and Colors"
+  ansible.builtin.template:
+    src: themecolors.j2
+    dest: "{{ ansible_facts['env']['HOME'] }}/.tmux/themecolors.conf"
+    backup: true
+    owner: "{{ ansible_facts['env']['USER'] }}"
+    group: "{{ ansible_facts['user_gid'] }}"
+
+- name: "Configuring Tmux Powerline"
+  ansible.builtin.template:
+    src: powerline.j2
+    dest: "{{ ansible_facts['env']['HOME'] }}/.tmux/powerline.conf"
+    backup: true
+    owner: "{{ ansible_facts['env']['USER'] }}"
+    group: "{{ ansible_facts['user_gid'] }}"
+
+- name: "Configuring plugins template"
+  ansible.builtin.template:
+    src: plugins.j2
+    dest: "{{ ansible_facts['env']['HOME'] }}/.tmux/plugins.conf"
+    backup: true
+    owner: "{{ ansible_facts['env']['USER'] }}"
+    group: "{{ ansible_facts['user_gid'] }}"

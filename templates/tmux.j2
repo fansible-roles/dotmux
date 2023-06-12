@@ -1,0 +1,31 @@
+#-------------------------------------------------------#
+# Options
+#-------------------------------------------------------#
+source-file {{ ansible_facts['env']['HOME'] }}/.tmux/options.conf
+
+#-------------------------------------------------------#
+# Key Bindings
+#-------------------------------------------------------#
+source-file {{ ansible_facts['env']['HOME'] }}/.tmux/keybindings.conf
+
+#-------------------------------------------------------#
+# Theme and Colors
+#-------------------------------------------------------#
+source-file {{ ansible_facts['env']['HOME'] }}/.tmux/themecolors.conf
+
+#-------------------------------------------------------#
+# Powerline Settings
+#-------------------------------------------------------#
+source-file {{ ansible_facts['env']['HOME'] }}/.tmux/powerline.conf
+
+#-------------------------------------------------------#
+# Include Plugins 
+#-------------------------------------------------------#
+source-file {{ ansible_facts['env']['HOME'] }}/.tmux/plugins.conf
+
+
+# === Tmux Links Tips ===
+# https://tmuxcheatsheet.com/ -- the cheat sheet bindkeys
+# https://tech.serhatteker.com/post/2019-06/tmux-focus/ -- theming and active panel colors
+# http://www.deanbodenham.com/learn/tmux-pane-colours.html -- theming and colors
+# https://cassidy.codes/blog/2019-08-03-tmux-colour-theme/

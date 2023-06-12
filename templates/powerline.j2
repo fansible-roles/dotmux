@@ -1,0 +1,9 @@
+# Configure the tmux-powerline
+run-shell "powerline-daemon -q"
+
+# Source the powerline configuration file
+# when installing with `pip install -I --user powerline-status`
+# the powerline.conf must in your python home e.g:
+# source  "$HOME/.local/lib/python3.6/site-packages/powerline/bindings/tmux/powerline.conf"
+# when installing via tmux-powerline package it will be in /usr/share/tmux
+source "/usr/share/tmux/powerline.conf"

@@ -1,0 +1,19 @@
+#-------------------------------------------------------#
+# Tmux Plugins Conf File
+#-------------------------------------------------------#
+
+# === Tmux Plugin Manager (TPM) ===
+#
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+
+
+# === My Custom Plugins ===
+
+# --- Tmux save sessions ---
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @resurrect-capture-pane-contents 'on'
+#set -g default-command "reattach-to-user-namespace -l $SHELL"
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run '~/.tmux/plugins/tpm/tpm'

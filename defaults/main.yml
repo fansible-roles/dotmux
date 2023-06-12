@@ -1,0 +1,18 @@
+---
+# defaults file for tmux
+#
+# packages to be installed
+tmux_setup_packages:
+  - tmux
+  - tmux-powerline
+  - fontawesome-fonts
+  - fontawesome-fonts-web
+  - fontawesome5-brands-fonts
+  - fontawesome5-fonts-web
+  - fontawesome5-free-fonts
+
+# a list to install custom plugins
+tmux_plugins:
+  - url: "https://github.com/tmux-plugins/tpm"
+    dest: "{{ ansible_facts['env']['HOME'] }}/.tmux/plugins/tpm"
+    version: "master"

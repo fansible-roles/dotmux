@@ -1,0 +1,8 @@
+---
+# handlers file for tmux
+- name: "Make sure to run prefix + I (capital I)"
+  ansible.builtin.debug:
+    msg: |
+      Make sure to use prefix + I to install the tmux plugins.
+      Read more about TPM plugins at https://github.com/tmux-plugins/tpm.
+  listen: message_user

@@ -1,0 +1,7 @@
+---
+# tasks file for tmux
+- name: "Including tmux installation"
+  ansible.builtin.include_tasks: install.yml
+
+- name: "Including tmux configuration setup"
+  ansible.builtin.include_tasks: setup.yml

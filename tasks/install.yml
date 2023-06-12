@@ -1,0 +1,27 @@
+---
+- name: "Installing tmux packages"
+  ansible.builtin.dnf:
+    name: "{{ tmux_setup_packages }}"
+    state: present
+  become: true
+  when: >
+    ( "ansible_facts['distribution'] == 'Fedora'" )
+    or
+    ("ansible_facts['distribution'] == 'RedHat'" )
+
+- name: "Installing custom plugins via git"
+  ansible.builtin.git:
+    repo: "{{ item.url }}"
+    dest: "{{ item.dest }}"
+    version: "{{ item.version }}"
+    update: true
+    clone: true
+  loop: "{{ tmux_plugins }}"
+
+- ansible.builtin.command:
+    argv:
+      - echo
+      - user
+  notify:
+    - 'message_user'
+
