@@ -9,14 +9,14 @@ source-file {{ ansible_facts['env']['HOME'] }}/.tmux/options.conf
 source-file {{ ansible_facts['env']['HOME'] }}/.tmux/keybindings.conf
 
 #-------------------------------------------------------#
-# Theme and Colors
-#-------------------------------------------------------#
-source-file {{ ansible_facts['env']['HOME'] }}/.tmux/themecolors.conf
-
-#-------------------------------------------------------#
 # Powerline Settings
 #-------------------------------------------------------#
 source-file {{ ansible_facts['env']['HOME'] }}/.tmux/powerline.conf
+
+#-------------------------------------------------------#
+# Theme and Colors
+#-------------------------------------------------------#
+source-file {{ ansible_facts['env']['HOME'] }}/.tmux/themecolors.conf
 
 #-------------------------------------------------------#
 # Include Plugins 
