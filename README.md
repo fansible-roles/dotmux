@@ -1,38 +1,55 @@
-Role Name
+tmux
 =========
 
-A brief description of the role goes here.
+An ansible role to install and configure tmux
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+* ansible >= 2.11.12
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+* `tmux_install`  - `(dict)`  - enable the tmux installation and list the packages to be installed  
+
+* `tmux_plugin_dir` - `(str)` - the default tmux plugin installation directory.`(defaults "$HOME/.tmux/plugins")`  
+
+* `tmux_plugins`  - `(list)`  - a list of plugins to be installed  
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+None
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
+* Basic default usage:  
+```yaml
     - hosts: servers
       roles:
-         - { role: username.rolename, x: 42 }
+         - { role: mrbrandao.tmux }
+```
+
+* Installing custom plugins:  
+```yaml  
+- hosts: servers
+  vars:
+    tmux_plugins:
+      - url: "http://github.com/plugin/myplugin"
+        dest: "{{ tmux_plugin_dir }}/myplugin"
+        version: "main" # use the git branch or tag
+  roles:
+     - { role: mrbrandao.tmux }
+```
 
 License
 -------
 
-BSD
+GPL-3.0-only
 
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+@mrbrandao - Igor Brandao - https://github.com/mrbrandao

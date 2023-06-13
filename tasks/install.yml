@@ -1,7 +1,7 @@
 ---
 - name: "Installing tmux packages"
   ansible.builtin.dnf:
-    name: "{{ tmux_setup_packages }}"
+    name: "{{ tmux_install.packages }}"
     state: present
   become: true
   when: >

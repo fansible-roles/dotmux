@@ -1,0 +1,5 @@
+---
+# vars file for tmux
+
+# default tmux plugin path
+__default_plugin_dir: "{{ ansible_facts['env']['HOME'] }}/.tmux/plugins"
