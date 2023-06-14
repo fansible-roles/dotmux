@@ -8,11 +8,63 @@ tmux_install:
   - tmux
   - tmux-powerline
 
-# tmux plugins directory
-tmux_plugin_dir: "{{ __default_plugin_dir }}"
+# define the tmux plugins directory
+# default: "$HOME/.tmux/plugins"
+tmux_plugin_dir: "{{ __default_tmux_plugin_dir }}"
+
+# define the default directory to install tmux conf files
+# default: "$HOME/.tmux"
+tmux_conf_dir: "{{ __default_tmux_conf_dir }}"
 
 # a list to install custom plugins
 tmux_plugins:
   - url: "https://github.com/tmux-plugins/tpm"
     dest: "{{ tmux_plugin_dir }}/tpm"
     version: "master"
+
+# removes template backup copies from the target system
+tmux_remove_backup: false
+
+# a template list of files to be installed
+tmux_templates:
+  - name: "Tmux"
+    file: tmux.j2
+    dest: "{{ ansible_facts['env']['HOME'] }}/.tmux.conf"
+    description: "The main tmux.conf file"
+    enable: true
+
+  - name: "Options"
+    file: options.j2
+    dest: "{{ tmux_conf_dir }}/options.conf"
+    description: "Configure the tmux Options"
+    enable: true
+
+  - name: "KeyBindings"
+    file: keybindings.j2
+    dest: "{{ tmux_conf_dir }}/keybindings.conf"
+    description: "Configure the tmux key bindings"
+    enable: true
+
+  - name: "ThemeColors"
+    file: themecolors.j2
+    dest: "{{ tmux_conf_dir }}/themecolors.conf"
+    description: "Configure Theme and Colors"
+    enable: true
+
+  - name: "Plugins"
+    file: plugins.j2
+    dest: "{{ tmux_conf_dir }}/plugins.conf"
+    description: "Configure Tmux Plugins"
+    enable: true
+
+  - name: "Powerline"
+    file: powerline.j2
+    dest: "{{ tmux_conf_dir }}/powerline.conf"
+    description: "Configure Tmux Powerline"
+    enable: true
+
+  - name: "Tmux Resurrect Plugin"
+    file: resurrect.j2
+    dest: "{{ tmux_conf_dir }}/resurrect.conf"
+    description: "Configure Tmux Resurrect Plugin"
+    enable: true
