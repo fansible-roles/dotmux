@@ -5,3 +5,7 @@
 
 - name: "Including tmux configuration setup"
   ansible.builtin.include_tasks: setup.yml
+
+- name: "Including clean-up"
+  ansible.builtin.include_tasks: cleanup.yml
+  when: tmux_remove_backup|bool

@@ -24,4 +24,3 @@
       - user
   notify:
     - 'message_user'
-
