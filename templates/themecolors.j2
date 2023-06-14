@@ -1,5 +1,23 @@
 # === Tmux Theme and Colors ===
+#
+# define the default status-bar background color
+set -g status-bg '#4e4e4e'
 
+#
+# --- Dracula Theme Settings ---
+# enable powerline symbols
+set -g @dracula-show-powerline 'true' 
+
+# Switch the left smiley icon
+# it can accept `session`, `smiley`, `window`, or any character.
+# set -g @dracula-show-left-icon session
+set -g @dracula-show-left-icon ' '
+
+
+##################################
+# Legacy Examples
+##################################
+#
 #set -g status-left-length 20
 #set -g status-right-length 150
 #set -g status-fg colour231
@@ -8,16 +26,14 @@
 #set -g status-left '#[fg=colour16,bg=colour254,bold] #S #[fg=colour254,bg=colour234,nobold]'
 #set -g status-right '#(eval tmux-airline `tmux display -p "#{client_width}"`)'
 #set -g status-right-length 150
-
 #set -g window-status-format "#[fg=colour244,bg=colour234]#I #[fg=colour240] #[default]#W "
 #set -g window-status-current-format "#[fg=colour234,bg=colour31]#[fg=colour117,bg=colour31] #I  #[fg=colour231,bold]#W #[fg=colour31,bg=colour234,nobold]"
-
 #set-window-option -g window-status-fg colour249
 #set-window-option -g window-status-activity-attr none
 #set-window-option -g window-status-bell-attr none
 #set-window-option -g window-status-activity-fg yellow
 #set-window-option -g window-status-bell-fg red
-run-shell 'tmux choose-tree -Nwf"##{==:##{session_name},#{session_name}}"'
+#run-shell 'tmux choose-tree -Nwf"##{==:##{session_name},#{session_name}}"'
 
 # === Tmux Theming and Colors ===
 #
@@ -26,7 +42,7 @@ run-shell 'tmux choose-tree -Nwf"##{==:##{session_name},#{session_name}}"'
 #-------------------------------------------------------#
 # set active-inactive window styles
 #set -g window-style 'bg=#443058'
-set -g window-active-style 'fg=default,bg=#2c2c2c'
+#set -g window-active-style 'fg=default,bg=#2c2c2c'
 
 # Pane border
 #set -g pane-border-bg default
@@ -37,14 +53,14 @@ set -g window-active-style 'fg=default,bg=#2c2c2c'
 #set -g pane-active-border-fg blue
 
 # pane border - dracula theme
-set -g default-terminal "screen-256color"
-set -g pane-border-style fg='#6272a4',bg='#443058'
-set -g pane-active-border-style fg='#ff79c6',bg='#443058'
+#set -g default-terminal "screen-256color"
+#set -g pane-border-style fg='#6272a4',bg='#443058'
+#set -g pane-active-border-style fg='#ff79c6',bg='#443058'
 
 # window status
-set-window-option -g window-status-style fg='#bd93f9',bg='#0f0f0f'
-set-window-option -g window-status-current-format "#[fg=#0f0f0f,bg=#bd93f9]⮀#[fg=#00ff00,bold] #F#[fg=#dfdfdf,bold,bg=#bd93f9] #I ⮁ #W #[fg=#bd93f9, bg=#0f0f0f]⮀"
-set -g status-left '#[bg=#0f0f0f]#[fg=#bd93f9]#{?client_prefix,#[fg=#00ff00],}  ' 
+#set-window-option -g window-status-style fg='#bd93f9',bg='#0f0f0f'
+#set-window-option -g window-status-current-format "#[fg=#0f0f0f,bg=#bd93f9]⮀#[fg=#00ff00,bold] #F#[fg=#dfdfdf,bold,bg=#bd93f9] #I ⮁ #W #[fg=#bd93f9, bg=#0f0f0f]⮀"
+#set -g status-left '#[bg=#0f0f0f]#[fg=#bd93f9]#{?client_prefix,#[fg=#00ff00],}  ' 
 
 # If using tmux-battery plugin uncomment those lines to customize the battery status
 #{battery_status_bg} #{battery_icon} #{battery_percentage}'
