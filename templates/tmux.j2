@@ -1,3 +1,32 @@
+####################### tmux.conf ################################
+# This file is managed with the ansible role mrbrandao.tmux
+# Any manual changes in this file could be lost.
+#
+# The order of loading configuration matters.
+# Files loaded by last have precedence of the ones loaded first.
+#
+# Commands and Settings in the `mycustom-powerline.conf`
+# will take precedence over the `powerline.conf`.
+#
+# e.g:
+# source-file .tmux/powerline.conf
+# source-file .tmux/mycustom-powerline.conf
+#
+# Tmux Links and Tips:
+# ----------------------
+# [The BindKeys Cheat Sheet](https://tmuxcheatsheet.com/)
+# [Theming and Active Panel Colors](https://tech.serhatteker.com/post/2019-06/tmux-focus/)
+# [Theming and Colors](http://www.deanbodenham.com/learn/tmux-pane-colours.html)
+# [Colour Theme](https://cassidy.codes/blog/2019-08-03-tmux-colour-theme/)
+##################################################################
+
+
+#-------------------------------------------------------#
+# Plugins Settings
+#-------------------------------------------------------#
+source-file {{ ansible_facts['env']['HOME'] }}/.tmux/resurrect.conf
+source-file {{ ansible_facts['env']['HOME'] }}/.tmux/powerline.conf
+
 #-------------------------------------------------------#
 # Options
 #-------------------------------------------------------#
@@ -9,11 +38,6 @@ source-file {{ ansible_facts['env']['HOME'] }}/.tmux/options.conf
 source-file {{ ansible_facts['env']['HOME'] }}/.tmux/keybindings.conf
 
 #-------------------------------------------------------#
-# Powerline Settings
-#-------------------------------------------------------#
-source-file {{ ansible_facts['env']['HOME'] }}/.tmux/powerline.conf
-
-#-------------------------------------------------------#
 # Theme and Colors
 #-------------------------------------------------------#
 source-file {{ ansible_facts['env']['HOME'] }}/.tmux/themecolors.conf
@@ -23,9 +47,3 @@ source-file {{ ansible_facts['env']['HOME'] }}/.tmux/themecolors.conf
 #-------------------------------------------------------#
 source-file {{ ansible_facts['env']['HOME'] }}/.tmux/plugins.conf
 
-
-# === Tmux Links Tips ===
-# https://tmuxcheatsheet.com/ -- the cheat sheet bindkeys
-# https://tech.serhatteker.com/post/2019-06/tmux-focus/ -- theming and active panel colors
-# http://www.deanbodenham.com/learn/tmux-pane-colours.html -- theming and colors
-# https://cassidy.codes/blog/2019-08-03-tmux-colour-theme/
